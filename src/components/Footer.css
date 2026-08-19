@@ -1,0 +1,167 @@
+.footer {
+  padding: 150px 0 50px;
+  background-color: var(--bg-color);
+  overflow: hidden; /* Prevent drifting */
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* Adjusted for better balance */
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 100px;
+  width: 100%;
+}
+
+.contact-left {
+  text-align: left;
+}
+
+.contact-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  color: var(--accent-color);
+  letter-spacing: 4px;
+  margin-bottom: 30px;
+}
+
+.contact-big-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(50px, 8vw, 110px); /* Slightly smaller to prevent overflow */
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -5px;
+  white-space: nowrap; /* Keep it as a block */
+}
+
+.contact-big-title span {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--text-primary);
+}
+
+.contact-right {
+  display: flex;
+  justify-content: flex-end; /* Align card to the right */
+}
+
+.contact-card {
+  background-color: var(--bg-secondary);
+  padding: 50px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 450px; /* Constrain card width */
+}
+
+.contact-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+}
+
+.card-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--text-secondary);
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.card-label.mt {
+  margin-top: 40px;
+}
+
+.card-link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--accent-color);
+  transition: var(--transition);
+  word-break: break-all;
+}
+
+.card-link:hover {
+  color: var(--accent-color);
+  padding-left: 10px;
+}
+
+.card-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-socials a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+.card-socials a:hover {
+  color: var(--accent-color);
+  transform: translateX(10px);
+}
+
+.availability {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #00ff00;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.footer-mini {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .contact-right {
+    justify-content: center;
+  }
+  
+  .contact-big-title {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-card {
+    padding: 30px;
+  }
+  
+  .footer-mini {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}

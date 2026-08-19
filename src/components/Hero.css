@@ -1,0 +1,128 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  background-color: var(--bg-color);
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.gradient-sphere {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+  filter: blur(60px);
+  animation: pulse 10s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+  100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+}
+
+.hero-content {
+  width: 100%;
+  z-index: 1;
+}
+
+.reveal-container {
+  overflow: hidden;
+  margin-bottom: -10px;
+}
+
+.intro {
+  font-family: 'Space Mono', monospace;
+  color: var(--accent-color);
+  font-size: 16px;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+
+.main-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(60px, 15vw, 160px);
+  font-weight: 900;
+  line-height: 0.8;
+  margin: 0;
+  letter-spacing: -8px;
+  text-transform: uppercase;
+}
+
+.main-title.outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--text-primary);
+}
+
+.hero-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 60px;
+}
+
+.description {
+  max-width: 450px;
+  color: var(--text-secondary);
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.scroll-indicator span {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  writing-mode: vertical-rl;
+}
+
+.scroll-indicator .line {
+  width: 1px;
+  height: 80px;
+  background-color: var(--accent-color);
+  animation: scrollLine 2s infinite;
+  transform-origin: top;
+}
+
+@keyframes scrollLine {
+  0% { transform: scaleY(0); }
+  50% { transform: scaleY(1); }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    letter-spacing: -3px;
+    font-size: clamp(50px, 18vw, 100px);
+  }
+  
+  .hero-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+  
+  .scroll-indicator {
+    display: none;
+  }
+}

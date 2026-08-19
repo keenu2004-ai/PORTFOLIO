@@ -1,0 +1,69 @@
+.cert-feature {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  align-items: center;
+  background-color: var(--bg-secondary);
+  padding: 60px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cert-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.cert-box {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border: 1px solid var(--accent-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.cert-id {
+  font-family: 'Space Mono', monospace;
+  font-size: 24px;
+  color: var(--accent-color);
+}
+
+.cert-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.cert-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(30px, 5vw, 60px);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.cert-desc {
+  color: var(--text-secondary);
+  font-size: 18px;
+  max-width: 500px;
+  margin-bottom: 40px;
+}
+
+.cert-footer {
+  display: flex;
+  gap: 40px;
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+@media (max-width: 968px) {
+  .cert-feature {
+    grid-template-columns: 1fr;
+    padding: 40px;
+    gap: 40px;
+  }
+}
