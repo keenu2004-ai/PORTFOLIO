@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <!-- Hardware Dark Green Theme -->
+  <rect width="1200" height="675" fill="#06120b"/>
+  <rect width="1200" height="675" fill="none" stroke="#4caf50" stroke-width="2" opacity="0.4"/>
+  
+  <!-- Header Bar -->
+  <rect x="0" y="0" width="1200" height="70" fill="#0d2417" stroke="#1b4029" stroke-width="1"/>
+  <text x="50" y="44" fill="#4caf50" font-family="'Poppins', sans-serif" font-size="22" font-weight="900" letter-spacing="1">ARDUMIST — SMART HUMIDITY &amp; MIST CONTROLLER</text>
+  <rect x="520" y="24" width="160" height="24" rx="4" fill="#4caf50" fill-opacity="0.2"/>
+  <text x="530" y="40" fill="#4caf50" font-family="monospace" font-size="11" font-weight="bold">48-HR HARDWARE HACKATHON</text>
+
+  <!-- Left: Arduino Circuit & Relay Schematics -->
+  <g transform="translate(50, 100)">
+    <rect x="0" y="0" width="500" height="530" rx="10" fill="#0a1d12" stroke="#1b4029" stroke-width="1"/>
+    <text x="30" y="40" fill="#4caf50" font-family="monospace" font-size="14" letter-spacing="2">ARDUINO UNO + RELAY HARDWARE SETUP</text>
+
+    <!-- Arduino Board -->
+    <rect x="150" y="80" width="200" height="250" rx="8" fill="#005c6e" stroke="#00a8c6" stroke-width="2"/>
+    <text x="170" y="115" fill="#ffffff" font-family="sans-serif" font-size="16" font-weight="bold">Arduino UNO R3</text>
+    <text x="170" y="135" fill="#80d8ff" font-family="monospace" font-size="11">ATmega328P</text>
+
+    <!-- Digital & Analog Pins -->
+    <rect x="160" y="160" width="180" height="140" rx="4" fill="#003844"/>
+    <text x="175" y="185" fill="#4caf50" font-family="monospace" font-size="11">Pin D2: DHT11 Data</text>
+    <text x="175" y="210" fill="#ff9800" font-family="monospace" font-size="11">Pin D7: Relay Trigger</text>
+    <text x="175" y="235" fill="#00f0ff" font-family="monospace" font-size="11">I2C SCL/SDA: OLED</text>
+    <text x="175" y="260" fill="#ffffff" font-family="monospace" font-size="11">5V / GND Power Rails</text>
+
+    <!-- 0.96" OLED Display Mockup -->
+    <rect x="30" y="360" width="200" height="130" rx="6" fill="#000000" stroke="#00f0ff" stroke-width="2"/>
+    <rect x="40" y="370" width="180" height="110" fill="#001122"/>
+    <text x="50" y="395" fill="#00f0ff" font-family="monospace" font-size="12">ARDUMIST v1.0</text>
+    <text x="50" y="420" fill="#ffffff" font-family="monospace" font-size="14">Hum: 42% [LOW]</text>
+    <text x="50" y="445" fill="#3fb950" font-family="monospace" font-size="12">RELAY: PUMP ON</text>
+    <text x="50" y="465" fill="#ff9800" font-family="monospace" font-size="10">Target: 60% RH</text>
+
+    <!-- 5V Relay Module -->
+    <rect x="270" y="360" width="200" height="130" rx="6" fill="#142c1d" stroke="#4caf50" stroke-width="1"/>
+    <text x="285" y="395" fill="#4caf50" font-family="sans-serif" font-size="13" font-weight="bold">🔌 5V Relay Module</text>
+    <rect x="285" y="415" width="80" height="30" rx="4" fill="#238636"/>
+    <text x="295" y="435" fill="#ffffff" font-family="monospace" font-size="11" font-weight="bold">ACTIVE</text>
+    <text x="285" y="470" fill="#8b949e" font-family="monospace" font-size="10">High Voltage Isolation</text>
+  </g>
+
+  <!-- Right: Technical Control Logic -->
+  <g transform="translate(580, 100)">
+    <rect x="0" y="0" width="570" height="530" rx="10" fill="#0a1d12" stroke="#1b4029" stroke-width="1"/>
+    <text x="30" y="40" fill="#4caf50" font-family="monospace" font-size="14" letter-spacing="2">EMBEDDED C LOGIC &amp; TELEMETRY</text>
+
+    <g transform="translate(30, 70)">
+      <rect x="0" y="0" width="510" height="420" rx="8" fill="#050f08" stroke="#1b4029"/>
+      <text x="20" y="35" fill="#8b949e" font-family="monospace" font-size="12">// ArduMist Microcontroller Firmware</text>
+      <text x="20" y="65" fill="#4caf50" font-family="monospace" font-size="13">#include &lt;DHT.h&gt;</text>
+      <text x="20" y="90" fill="#4caf50" font-family="monospace" font-size="13">#include &lt;Adafruit_SSD1306.h&gt;</text>
+
+      <text x="20" y="130" fill="#00f0ff" font-family="monospace" font-size="13">void loop() {</text>
+      <text x="40" y="160" fill="#ffffff" font-family="monospace" font-size="13">float h = dht.readHumidity();</text>
+      <text x="40" y="190" fill="#ffffff" font-family="monospace" font-size="13">float t = dht.readTemperature();</text>
+      
+      <text x="40" y="230" fill="#ff9800" font-family="monospace" font-size="13">if (h &lt; HUMIDITY_THRESHOLD) {</text>
+      <text x="60" y="260" fill="#3fb950" font-family="monospace" font-size="13">digitalWrite(RELAY_PIN, HIGH); // Trigger Mist</text>
+      <text x="60" y="285" fill="#3fb950" font-family="monospace" font-size="13">displayOledStatus("MISTING ACTIVE", h);</text>
+      <text x="40" y="310" fill="#ff9800" font-family="monospace" font-size="13">} else {</text>
+      <text x="60" y="335" fill="#f85149" font-family="monospace" font-size="13">digitalWrite(RELAY_PIN, LOW); // Cut Power</text>
+      <text x="40" y="360" fill="#ff9800" font-family="monospace" font-size="13">}</text>
+      <text x="20" y="390" fill="#00f0ff" font-family="monospace" font-size="13">}</text>
+    </g>
+  </g>
+</svg>

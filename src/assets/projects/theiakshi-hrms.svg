@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <!-- Dark Cyber Background -->
+  <rect width="1200" height="675" fill="#080b10"/>
+  <rect width="1200" height="675" fill="none" stroke="#00f0ff" stroke-width="2" opacity="0.3"/>
+  
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="220" height="675" fill="#0d1117" stroke="#1f293d" stroke-width="1"/>
+  <text x="24" y="45" fill="#00f0ff" font-family="monospace" font-size="18" font-weight="bold">THEIAKSHI-ONE</text>
+  <text x="24" y="65" fill="#8b949e" font-family="sans-serif" font-size="11">ENTERPRISE HRMS</text>
+  
+  <!-- Nav Items -->
+  <rect x="16" y="100" width="188" height="38" rx="6" fill="#00f0ff" fill-opacity="0.15" stroke="#00f0ff" stroke-width="1"/>
+  <text x="44" y="124" fill="#00f0ff" font-family="sans-serif" font-size="13" font-weight="bold">📊 Dashboard</text>
+  
+  <text x="44" y="174" fill="#8b949e" font-family="sans-serif" font-size="13">👥 Employees</text>
+  <text x="44" y="214" fill="#8b949e" font-family="sans-serif" font-size="13">⏱️ Attendance</text>
+  <text x="44" y="254" fill="#8b949e" font-family="sans-serif" font-size="13">📅 Leave Engine</text>
+  <text x="44" y="294" fill="#8b949e" font-family="sans-serif" font-size="13">⚙️ Regularization</text>
+  <text x="44" y="334" fill="#8b949e" font-family="sans-serif" font-size="13">🔒 RBAC Roles</text>
+  
+  <!-- Header Bar -->
+  <rect x="220" y="0" width="980" height="65" fill="#0d1117" stroke="#1f293d" stroke-width="1"/>
+  <text x="250" y="38" fill="#ffffff" font-family="sans-serif" font-size="16" font-weight="bold">Enterprise HR &amp; Attendance Management</text>
+  <rect x="1050" y="20" width="120" height="28" rx="14" fill="#00f0ff" fill-opacity="0.2" stroke="#00f0ff" stroke-width="1"/>
+  <text x="1065" y="38" fill="#00f0ff" font-family="sans-serif" font-size="11" font-weight="bold">● ADMIN MODE</text>
+
+  <!-- Metric Cards Row -->
+  <g transform="translate(250, 95)">
+    <!-- Card 1 -->
+    <rect x="0" y="0" width="215" height="110" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="20" y="32" fill="#8b949e" font-family="sans-serif" font-size="12">Total Active Workforce</text>
+    <text x="20" y="70" fill="#ffffff" font-family="monospace" font-size="32" font-weight="bold">1,482</text>
+    <text x="120" y="70" fill="#3fb950" font-family="sans-serif" font-size="12">+12% vs last month</text>
+    
+    <!-- Card 2 -->
+    <rect x="235" y="0" width="215" height="110" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="255" y="32" fill="#8b949e" font-family="sans-serif" font-size="12">Attendance Today</text>
+    <text x="255" y="70" fill="#00f0ff" font-family="monospace" font-size="32" font-weight="bold">96.4%</text>
+    <text x="365" y="70" fill="#8b949e" font-family="sans-serif" font-size="12">1,429 Checked In</text>
+
+    <!-- Card 3 -->
+    <rect x="470" y="0" width="215" height="110" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="490" y="32" fill="#8b949e" font-family="sans-serif" font-size="12">Pending Leave Requests</text>
+    <text x="490" y="70" fill="#d29922" font-family="monospace" font-size="32" font-weight="bold">18</text>
+    <text x="545" y="70" fill="#d29922" font-family="sans-serif" font-size="12">Requires Action</text>
+
+    <!-- Card 4 -->
+    <rect x="705" y="0" width="215" height="110" rx="8" fill="#161b22" stroke="#00f0ff" stroke-width="1"/>
+    <text x="725" y="32" fill="#00f0ff" font-family="sans-serif" font-size="12">SQL Migrations Status</text>
+    <text x="725" y="70" fill="#00f0ff" font-family="monospace" font-size="24" font-weight="bold">PostgreSQL</text>
+    <text x="725" y="92" fill="#8b949e" font-family="sans-serif" font-size="10">v023_rollover.sql Applied</text>
+  </g>
+
+  <!-- Table View: Leave & Regularization Engine -->
+  <g transform="translate(250, 235)">
+    <rect x="0" y="0" width="920" height="400" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="24" y="35" fill="#ffffff" font-family="sans-serif" font-size="15" font-weight="bold">Attendance Regularization &amp; Leave Rollover Audit Log</text>
+    <text x="650" y="35" fill="#00f0ff" font-family="monospace" font-size="12">Node.js + PostgreSQL Backend</text>
+
+    <!-- Table Header -->
+    <rect x="24" y="55" width="872" height="36" fill="#0d1117"/>
+    <text x="40" y="78" fill="#8b949e" font-family="monospace" font-size="11">EMP ID</text>
+    <text x="140" y="78" fill="#8b949e" font-family="monospace" font-size="11">EMPLOYEE NAME</text>
+    <text x="320" y="78" fill="#8b949e" font-family="monospace" font-size="11">TYPE</text>
+    <text x="450" y="78" fill="#8b949e" font-family="monospace" font-size="11">DATE RANGE</text>
+    <text x="630" y="78" fill="#8b949e" font-family="monospace" font-size="11">REASON</text>
+    <text x="790" y="78" fill="#8b949e" font-family="monospace" font-size="11">STATUS</text>
+
+    <!-- Row 1 -->
+    <line x1="24" y1="135" x2="896" y2="135" stroke="#21262d" stroke-width="1"/>
+    <text x="40" y="118" fill="#00f0ff" font-family="monospace" font-size="12">EMP-0412</text>
+    <text x="140" y="118" fill="#ffffff" font-family="sans-serif" font-size="12">Rahul Verma</text>
+    <text x="320" y="118" fill="#e3b341" font-family="sans-serif" font-size="12">Attendance Regularization</text>
+    <text x="450" y="118" fill="#8b949e" font-family="sans-serif" font-size="12">2026-08-24 (Biometric Miss)</text>
+    <text x="630" y="118" fill="#8b949e" font-family="sans-serif" font-size="12">On-site client deployment</text>
+    <rect x="790" y="102" width="80" height="22" rx="11" fill="#238636" fill-opacity="0.3" stroke="#2ea043" stroke-width="1"/>
+    <text x="806" y="117" fill="#3fb950" font-family="sans-serif" font-size="11" font-weight="bold">APPROVED</text>
+
+    <!-- Row 2 -->
+    <line x1="24" y1="180" x2="896" y2="180" stroke="#21262d" stroke-width="1"/>
+    <text x="40" y="163" fill="#00f0ff" font-family="monospace" font-size="12">EMP-0891</text>
+    <text x="140" y="163" fill="#ffffff" font-family="sans-serif" font-size="12">Ananya Sharma</text>
+    <text x="320" y="163" fill="#a5d6ff" font-family="sans-serif" font-size="12">Earned Leave Rollover</text>
+    <text x="450" y="163" fill="#8b949e" font-family="sans-serif" font-size="12">2026-08-28 to 2026-09-02</text>
+    <text x="630" y="163" fill="#8b949e" font-family="sans-serif" font-size="12">Annual Vacation</text>
+    <rect x="790" y="147" width="80" height="22" rx="11" fill="#9e6a03" fill-opacity="0.3" stroke="#d29922" stroke-width="1"/>
+    <text x="808" y="162" fill="#d29922" font-family="sans-serif" font-size="11" font-weight="bold">PENDING</text>
+
+    <!-- Row 3 -->
+    <line x1="24" y1="225" x2="896" y2="225" stroke="#21262d" stroke-width="1"/>
+    <text x="40" y="208" fill="#00f0ff" font-family="monospace" font-size="12">EMP-0104</text>
+    <text x="140" y="208" fill="#ffffff" font-family="sans-serif" font-size="12">Vikram Singh</text>
+    <text x="320" y="208" fill="#f85149" font-family="sans-serif" font-size="12">Sick Leave Request</text>
+    <text x="450" y="208" fill="#8b949e" font-family="sans-serif" font-size="12">2026-08-25</text>
+    <text x="630" y="208" fill="#8b949e" font-family="sans-serif" font-size="12">Medical Emergency</text>
+    <rect x="790" y="192" width="80" height="22" rx="11" fill="#238636" fill-opacity="0.3" stroke="#2ea043" stroke-width="1"/>
+    <text x="806" y="207" fill="#3fb950" font-family="sans-serif" font-size="11" font-weight="bold">APPROVED</text>
+  </g>
+</svg>

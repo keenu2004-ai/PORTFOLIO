@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <!-- Dark Gym Theme Background -->
+  <rect width="1200" height="675" fill="#0c0a0d"/>
+  <rect width="1200" height="675" fill="none" stroke="#ff0055" stroke-width="2" opacity="0.4"/>
+  
+  <!-- Header Bar -->
+  <rect x="0" y="0" width="1200" height="70" fill="#151218" stroke="#2a2230" stroke-width="1"/>
+  <text x="50" y="44" fill="#ff0055" font-family="'Poppins', sans-serif" font-size="24" font-weight="900" letter-spacing="2">FITZONE</text>
+  <text x="175" y="44" fill="#ffffff" font-family="sans-serif" font-size="14" font-weight="bold">FITNESS CLUB</text>
+
+  <text x="650" y="42" fill="#ffffff" font-family="sans-serif" font-size="13">WORKOUTS</text>
+  <text x="760" y="42" fill="#ff0055" font-family="sans-serif" font-size="13" font-weight="bold">CLASSES</text>
+  <text x="850" y="42" fill="#ffffff" font-family="sans-serif" font-size="13">TRAINERS</text>
+  <text x="950" y="42" fill="#ffffff" font-family="sans-serif" font-size="13">MEMBERSHIP</text>
+  
+  <rect x="1060" y="20" width="90" height="32" rx="4" fill="#ff0055"/>
+  <text x="1080" y="41" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold">JOIN NOW</text>
+
+  <!-- Hero Section inside Mockup -->
+  <g transform="translate(50, 100)">
+    <rect x="0" y="0" width="1100" height="240" rx="10" fill="#1c1622" stroke="#ff0055" stroke-opacity="0.3" stroke-width="1"/>
+    <text x="50" y="70" fill="#ff0055" font-family="monospace" font-size="14" letter-spacing="3">FULL-STACK GYM MANAGEMENT PLATFORM</text>
+    <text x="50" y="120" fill="#ffffff" font-family="'Poppins', sans-serif" font-size="38" font-weight="900">ELEVATE YOUR ATHLETIC</text>
+    <text x="50" y="165" fill="#ffffff" font-family="'Poppins', sans-serif" font-size="38" font-weight="900">PERFORMANCE &amp; GOALS</text>
+    <text x="50" y="200" fill="#a09aa6" font-family="sans-serif" font-size="14">React + Express + PostgreSQL • Live Class Booking &amp; Member Dashboards</text>
+
+    <!-- Stat Pill -->
+    <rect x="850" y="40" width="200" height="160" rx="8" fill="#120e16" stroke="#31253a"/>
+    <text x="870" y="75" fill="#a09aa6" font-family="sans-serif" font-size="12">Active Gym Members</text>
+    <text x="870" y="125" fill="#ff0055" font-family="monospace" font-size="42" font-weight="bold">850+</text>
+    <text x="870" y="170" fill="#00f0ff" font-family="sans-serif" font-size="12">✓ PostgreSQL Synced</text>
+  </g>
+
+  <!-- Class Schedule Cards -->
+  <g transform="translate(50, 370)">
+    <text x="0" y="0" fill="#ffffff" font-family="'Poppins', sans-serif" font-size="20" font-weight="bold">FEATURED TRAINING CLASSES</text>
+
+    <!-- Card 1 -->
+    <rect x="0" y="20" width="345" height="230" rx="8" fill="#16121a" stroke="#2c2233" stroke-width="1"/>
+    <rect x="20" y="40" width="80" height="24" rx="12" fill="#ff0055" fill-opacity="0.2"/>
+    <text x="35" y="56" fill="#ff0055" font-family="sans-serif" font-size="11" font-weight="bold">CROSSFIT</text>
+    <text x="20" y="100" fill="#ffffff" font-family="sans-serif" font-size="20" font-weight="bold">High Intensity Power</text>
+    <text x="20" y="130" fill="#a09aa6" font-family="sans-serif" font-size="13">Trainer: Alex Vance</text>
+    <text x="20" y="155" fill="#a09aa6" font-family="sans-serif" font-size="13">Schedule: Mon/Wed/Fri 07:00 AM</text>
+    <rect x="20" y="180" width="305" height="40" rx="4" fill="#ff0055"/>
+    <text x="120" y="205" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold">BOOK CLASS</text>
+
+    <!-- Card 2 -->
+    <rect x="375" y="20" width="345" height="230" rx="8" fill="#16121a" stroke="#2c2233" stroke-width="1"/>
+    <rect x="395" y="40" width="90" height="24" rx="12" fill="#00f0ff" fill-opacity="0.2"/>
+    <text x="410" y="56" fill="#00f0ff" font-family="sans-serif" font-size="11" font-weight="bold">STRENGTH</text>
+    <text x="395" y="100" fill="#ffffff" font-family="sans-serif" font-size="20" font-weight="bold">Heavy Hypertrophy</text>
+    <text x="395" y="130" fill="#a09aa6" font-family="sans-serif" font-size="13">Trainer: Marcus Brody</text>
+    <text x="395" y="155" fill="#a09aa6" font-family="sans-serif" font-size="13">Schedule: Tue/Thu 06:00 PM</text>
+    <rect x="395" y="180" width="305" height="40" rx="4" fill="#251d2c" stroke="#ff0055" stroke-width="1"/>
+    <text x="495" y="205" fill="#ff0055" font-family="sans-serif" font-size="13" font-weight="bold">BOOK CLASS</text>
+
+    <!-- Card 3 -->
+    <rect x="750" y="20" width="350" height="230" rx="8" fill="#16121a" stroke="#2c2233" stroke-width="1"/>
+    <rect x="770" y="40" width="80" height="24" rx="12" fill="#3fb950" fill-opacity="0.2"/>
+    <text x="785" y="56" fill="#3fb950" font-family="sans-serif" font-size="11" font-weight="bold">CARDIO</text>
+    <text x="770" y="100" fill="#ffffff" font-family="sans-serif" font-size="20" font-weight="bold">Endurance Run</text>
+    <text x="770" y="130" fill="#a09aa6" font-family="sans-serif" font-size="13">Trainer: Sarah Chen</text>
+    <text x="770" y="155" fill="#a09aa6" font-family="sans-serif" font-size="13">Schedule: Daily 08:00 AM</text>
+    <rect x="770" y="180" width="310" height="40" rx="4" fill="#251d2c" stroke="#ff0055" stroke-width="1"/>
+    <text x="870" y="205" fill="#ff0055" font-family="sans-serif" font-size="13" font-weight="bold">BOOK CLASS</text>
+  </g>
+</svg>
