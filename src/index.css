@@ -16,7 +16,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  cursor: none; /* Custom cursor */
+  cursor: none;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -28,14 +32,10 @@ body {
   overflow-x: hidden;
 }
 
-/* Noise Texture Overlay */
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   pointer-events: none;
   background-image: url("https://grainy-gradients.vercel.app/noise.svg");
   opacity: var(--noise-opacity);
@@ -46,6 +46,11 @@ a {
   text-decoration: none;
   color: inherit;
   transition: var(--transition);
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
 ul {
@@ -70,30 +75,47 @@ section {
   margin: 0 auto;
 }
 
-/* High-Impact Animations */
+/* Fail-safe reveal system: content is never left invisible if JS/observer timing changes. */
 .reveal-text {
-  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-  transform: translateY(100%);
-  transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1), transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.reveal-text.visible {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  opacity: 1;
+  clip-path: none;
   transform: translateY(0);
+  animation: revealText 0.8s cubic-bezier(0.77, 0, 0.175, 1) both;
 }
 
 .scale-up {
-  opacity: 0;
-  transform: scale(0.8);
-  transition: opacity 1s ease-out, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.scale-up.visible {
   opacity: 1;
   transform: scale(1);
+  animation: scaleUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* Custom Cursor */
+.reveal-text.visible,
+.scale-up.visible {
+  opacity: 1;
+}
+
+@keyframes revealText {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 .custom-cursor {
   position: fixed;
   top: 0;
@@ -104,8 +126,9 @@ section {
   border-radius: 50%;
   pointer-events: none;
   z-index: 10000;
-  transition: transform 0.1s ease-out, width 0.3s, height 0.3s, background-color 0.3s;
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
   mix-blend-mode: difference;
+  will-change: transform;
 }
 
 .custom-cursor.hover {
@@ -126,10 +149,25 @@ section {
   line-height: 0.9;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 @media (max-width: 768px) {
   * {
     cursor: auto !important;
   }
+
   .custom-cursor {
     display: none;
   }
