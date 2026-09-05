@@ -1,73 +1,54 @@
-# React + TypeScript + Vite
+# Vaibhav Rajput — Personal Engineering Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance, cinematic personal developer portfolio website built with **React 19**, **TypeScript**, **Vite**, and **Modern CSS**. Features custom animations, SVG visualizations, interactive showcase modules, and full SEO/accessibility optimization.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ⚡ Tech Stack & Architecture
 
-## React Compiler
+- **Frontend Framework**: React 19 & TypeScript
+- **Build Tooling**: Vite (Production chunking & source map security)
+- **Styling**: Vanilla CSS3 (Custom Design System, Flexbox, Grid, Ambient Gradients)
+- **Icons**: Lucide React & Custom SVG Social Mark Symbols
+- **Components**:
+  - `Hero`: Primary headline, interactive section navigation rail, LCP optimized
+  - `About`: Technical highlights & skill breakdown visual cards
+  - `Skills`: Categorized technology stack display
+  - `FlagshipProject`: Interactive tabbed system showcase for Theiakshi HRMS
+  - `Projects`: Selected works grid with repository deep-links
+  - `Experience`: Education & software development milestone timeline
+  - `DevOpsSection`: Interactive end-to-end containerized pipeline breakdown
+  - `Services`: Core technical service offerings
+  - `Certifications`: Academic & engineering qualifications
+  - `GithubSection`: Direct GitHub profile and live repository cards
+  - `Contact`: Direct inquiry message interface
+  - `NotFound`: Branded custom 404 route component
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🚀 Development & Build Workflow
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
+- Node.js (v18+)
+- npm / yarn
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Run Locally (Development)
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Production Build & Preview
+```bash
+npm run build
+npm run preview
 ```
+
+The production output in `dist/` contains:
+- Pre-rendered HTML with complete Open Graph & Twitter card metadata
+- Machine-readable `/sitemap.xml`, `/robots.txt`, and `/llms.txt`
+- Custom SVG favicons
+- Minified JS/CSS bundles without production source maps (`sourcemap: false`)
+
+---
+
+© 2026 Vaibhav Rajput. All rights reserved.

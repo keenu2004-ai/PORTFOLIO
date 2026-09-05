@@ -1,55 +1,50 @@
-import "./About.css";
+import { Layout, Cpu, Code2 } from 'lucide-react';
+import './About.css';
 
 const About = () => {
   return (
-    <section id="about" className="about">
+    <section id="about" className="about" aria-labelledby="about-heading">
       <div className="about-grid">
         <div className="about-visual scale-up">
           <div className="pinterest-grid">
             <div className="pinterest-item item-1">
-              <div
-                className="img-placeholder"
-                style={{ backgroundColor: "#1a1a1a" }}
-              >
-                <span className="img-label">UI/UX</span>
+              <div className="visual-card-box card-ui">
+                <Layout className="card-icon cyan" size={28} />
+                <span className="img-label">FULL-STACK &amp; UI</span>
+                <p className="card-subtext">React, TypeScript &amp; High-Fidelity Design</p>
               </div>
             </div>
             <div className="pinterest-item item-2">
-              <div
-                className="img-placeholder"
-                style={{ backgroundColor: "#00f0ff20" }}
-              >
-                <span className="img-label">IOT</span>
+              <div className="visual-card-box card-iot">
+                <Cpu className="card-icon green" size={28} />
+                <span className="img-label">IOT &amp; EMBEDDED</span>
+                <p className="card-subtext">ESP8266, Sensors &amp; Real-time Telemetry</p>
               </div>
             </div>
             <div className="pinterest-item item-3">
-              <div
-                className="img-placeholder"
-                style={{ backgroundColor: "#ffffff05" }}
-              >
-                <span className="img-label">CODE</span>
+              <div className="visual-card-box card-code">
+                <Code2 className="card-icon purple" size={28} />
+                <span className="img-label">SYSTEMS &amp; DB</span>
+                <p className="card-subtext">Node.js, PostgreSQL &amp; Docker Pipelines</p>
               </div>
             </div>
           </div>
         </div>
 
         <div className="about-content">
-          <h2 className="section-title reveal-text">WHO IS / VAIBHAV?</h2>
+          <h2 id="about-heading" className="section-title reveal-text">
+            WHO IS / VAIBHAV?
+          </h2>
           <div className="about-description reveal-text">
             <p className="resume-intro">
-              An enthusiastic and dedicated student currently pursuing a
-              Bachelor of Technology at ABES Engineering College, specialized in
-              Electronics and Communication Engineering.
+              An enthusiastic full-stack software developer pursuing a
+              Bachelor of Technology in Electronics and Communication Engineering at ABES Engineering College.
             </p>
             <p>
-              Driven by the synergy between hardware and software, I bridge the
-              gap between the physical world and digital experiences. I design
-              with purpose and code with precision.
+              Driven by the synergy between physical hardware and cloud software systems, I bridge low-level microcontrollers with high-throughput digital interfaces.
             </p>
             <p>
-              My expertise spans from engineering complex IoT ecosystems like
-              Solar Defect Detection systems to crafting pixel-perfect frontend
-              replicas of major fintech platforms like PhonePe.
+              My engineering portfolio ranges from designing full-scale enterprise software systems like the <strong>Theiakshi HRMS</strong> platform to prototyping intelligent telemetry nodes like the <strong>Solar Defect Detection</strong> system.
             </p>
           </div>
         </div>

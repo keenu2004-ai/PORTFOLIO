@@ -1,61 +1,72 @@
+import { ExternalLink } from 'lucide-react';
+import { GithubIcon } from './SocialIcons';
+import solarSvg from '../assets/projects/solar-iot.svg';
+import fitzoneSvg from '../assets/projects/fitzone-gym.svg';
+import phonepeSvg from '../assets/projects/phonepe-clone.svg';
+import ardumistSvg from '../assets/projects/ardumist-iot.svg';
 import './Projects.css';
 
 const Projects = () => {
   const projects = [
     {
       id: '01',
-      title: 'CREATIVE VISUAL PORTFOLIO',
-      category: 'DESIGN / FRONTEND',
-      description: 'A high-impact, cinematic portfolio featuring massive typography, custom magnetic cursors, and sensory-driven animations.',
-      tech: ['React', 'TypeScript', 'Advanced CSS', 'Vite'],
-      color: '#00f0ff'
+      title: 'SOLAR DEFECT DETECTION',
+      category: 'IoT / EMBEDDED TELEMETRY',
+      description:
+        'Real-time fault monitoring & telemetry system for PV solar arrays using ESP8266 microcontrollers and threshold sensing algorithms.',
+      tech: ['ESP8266', 'C++', 'Analog Sensing', 'Wi-Fi Telemetry'],
+      color: '#ff9800',
+      github: 'https://github.com/x-vaibhav/solar-defect-detection',
+      image: solarSvg,
+      imageAlt: 'Solar PV Defect Detection IoT Circuit Telemetry Diagram',
     },
     {
       id: '02',
-      title: 'SOLAR DEFECT DETECTION',
-      category: 'IoT / EMBEDDED',
-      description: 'Real-time fault monitoring system for PV panels using ESP8266 and intelligent threshold logic.',
-      tech: ['ESP8266', 'DHT11', 'Analog Sensing'],
-      color: '#ff9800'
+      title: 'FITZONE GYM SYSTEM',
+      category: 'FULL-STACK SOFTWARE',
+      description:
+        'Comprehensive gym membership management platform with interactive class scheduling, user bookings, and administrative control panels.',
+      tech: ['React', 'PostgreSQL', 'Node.js', 'Express API'],
+      color: '#ff0055',
+      github: 'https://github.com/x-vaibhav/fitzone-gym',
+      image: fitzoneSvg,
+      imageAlt: 'Fitzone Gym Management Dashboard Interface Screenshot',
     },
     {
       id: '03',
-      title: 'FITZONE GYM SYSTEM',
-      category: 'FULL-STACK',
-      description: 'Comprehensive gym membership platform with admin dashboards and class booking systems.',
-      tech: ['React', 'PostgreSQL', 'Node.js'],
-      color: '#ff0055'
+      title: 'PHONEPE UI CLONE',
+      category: 'FRONTEND PRECISION',
+      description:
+        'High-fidelity pixel-perfect React replica of the PhonePe mobile payment landing platform, focused on interface precision and layout integrity.',
+      tech: ['React', 'TypeScript', 'CSS3 Layout', 'Vite'],
+      color: '#a855f7',
+      github: 'https://github.com/x-vaibhav/phonepe-clone',
+      image: phonepeSvg,
+      imageAlt: 'PhonePe UI Mobile Landing Page Clone Replica Interface',
     },
     {
       id: '04',
-      title: 'PHONEPE UI CLONE',
-      category: 'FRONTEND',
-      description: 'High-fidelity pixel-perfect replica of the PhonePe landing page, focused on design precision.',
-      tech: ['HTML5', 'CSS3', 'Layout'],
-      color: '#673ab7'
-    },
-    {
-      id: '05',
-      title: 'ARDUMIST HACKATHON',
+      title: 'ARDUMIST HACKATHON NODE',
       category: 'HARDWARE / INNOVATION',
-      description: 'Smart automated solution built during a 24-hour hackathon using Arduino microcontrollers.',
-      tech: ['Arduino', 'C++', 'Sensors'],
-      color: '#4caf50'
+      description:
+        'Automated greenhouse micro-climate misting control system engineered under strict 24-hour hackathon constraints with Arduino boards.',
+      tech: ['Arduino C++', 'DHT Sensors', 'Micro-Relays'],
+      color: '#22c55e',
+      github: 'https://github.com/x-vaibhav',
+      image: ardumistSvg,
+      imageAlt: 'ArduMist Smart Microcontroller Prototype Wiring Layout',
     },
-    {
-      id: '06',
-      title: 'MODERN RESTAURANT',
-      category: 'UI/UX',
-      description: 'Immersive multi-page experience for a food business with responsive navigation and menus.',
-      tech: ['JS', 'CSS Animation', 'HTML'],
-      color: '#ffffff'
-    }
   ];
 
   return (
-    <section id="projects" className="projects">
-      <h2 className="section-title reveal-text">Selected / Works</h2>
-      
+    <section id="projects" className="projects" aria-labelledby="projects-heading">
+      <div className="section-header-wrap">
+        <span className="section-tag">04 / Portfolio Highlights</span>
+        <h2 id="projects-heading" className="section-title reveal-text">
+          Selected Engineering Works
+        </h2>
+      </div>
+
       <div className="projects-container">
         {projects.map((project) => (
           <div key={project.id} className="project-feature">
@@ -64,18 +75,43 @@ const Projects = () => {
               <p className="project-cat">{project.category}</p>
               <h3 className="project-name">{project.title}</h3>
               <p className="project-desc">{project.description}</p>
+
               <div className="project-tech">
-                {project.tech.map(t => <span key={t}>{t}</span>)}
+                {project.tech.map((t) => (
+                  <span key={t}>{t}</span>
+                ))}
+              </div>
+
+              <div className="project-links">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-btn"
+                  aria-label={`View GitHub repository for ${project.title}`}
+                >
+                  <GithubIcon size={16} /> Repository <ExternalLink size={14} />
+                </a>
               </div>
             </div>
-            
+
             <div className="project-visual scale-up">
-              <div 
-                className="visual-box" 
-                style={{ backgroundColor: project.color + '10', borderColor: project.color }}
+              <div
+                className="visual-box"
+                style={{ backgroundColor: project.color + '10', borderColor: project.color + '40' }}
               >
-                <div className="inner-glow" style={{ boxShadow: `inset 0 0 100px ${project.color}15` }}></div>
-                <div className="floating-title" style={{ color: project.color }}>{project.id}</div>
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.imageAlt}
+                    className="project-img-preview"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="floating-title" style={{ color: project.color }}>
+                    {project.id}
+                  </div>
+                )}
               </div>
             </div>
           </div>

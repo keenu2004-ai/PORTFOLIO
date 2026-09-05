@@ -1,0 +1,95 @@
+.not-found-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: var(--bg-color, #0a0a0c);
+  color: var(--text-color, #ffffff);
+  position: relative;
+  overflow: hidden;
+}
+
+.not-found-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, rgba(112, 0, 255, 0.04) 50%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.not-found-card {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  background: rgba(18, 18, 22, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 3.5rem 2.5rem;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.not-found-badge {
+  display: inline-block;
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #00f0ff;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 20px;
+}
+
+.not-found-glitch {
+  font-size: clamp(5rem, 12vw, 9rem);
+  font-weight: 900;
+  line-height: 1;
+  margin: 0.5rem 0;
+  background: linear-gradient(135deg, #ffffff 0%, #00f0ff 60%, #7000ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -2px;
+}
+
+.not-found-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-color, #ffffff);
+}
+
+.not-found-desc {
+  font-size: 1rem;
+  color: #8f9bb3;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.not-found-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .not-found-card {
+    padding: 2.5rem 1.5rem;
+  }
+  .not-found-actions {
+    flex-direction: column;
+  }
+  .not-found-actions a {
+    width: 100%;
+  }
+}
