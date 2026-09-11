@@ -53,15 +53,14 @@ const Hero = () => {
 
         <div className="reveal-container">
           <h1 className="main-title reveal-text">
-            THE MODERN <span className="outline">HYBRID</span>
+            THE HYBRID <span className="outline">DEVELOPER</span>
           </h1>
         </div>
 
         <div className="hero-footer reveal-text">
           <div className="description-container">
             <p className="description">
-              Building full-stack web applications and connected IoT hardware ecosystems.
-              From API and database design to frontend execution and embedded telemetry.
+              Architecting high-performance digital products from the ground up. I bridge the gap between seamless user interfaces, resilient backend systems, and connected IoT telemetry to deliver complete, production-grade solutions.
             </p>
             <div className="hero-ctas">
               <button className="btn-primary" onClick={() => scrollToSection('projects')}>View Projects</button>

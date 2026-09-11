@@ -41,7 +41,7 @@ const About = () => {
               I build full-stack applications and take them from interface to API, database, deployment, and the problems that appear after launch.
             </p>
             <p>
-              Currently pursuing a B.Tech in Electronics and Communication Engineering at ABES Engineering College, I split my focus between web infrastructure and hardware telemetry.
+              Graduated with a B.Tech in Electronics and Communication Engineering from ABES Engineering College, I split my focus between web infrastructure and hardware telemetry.
             </p>
             <p>
               My work ranges from engineering production-oriented enterprise platforms like the <strong>THEIAKSHI ONE</strong> HRMS to wiring physical microcontrollers for IoT telemetry networks. I prioritize functional architecture, robust APIs, and relational data integrity over buzzwords.
