@@ -1,12 +1,11 @@
 export const SITE_CONFIG = {
   name: 'Vaibhav Rajput',
-  role: 'Full-Stack Developer & Software Engineer',
-  title: 'Vaibhav Rajput — Full-Stack Developer & Software Engineer',
+  role: 'Vibe Coder | Full-Stack Product Engineer',
+  title: 'Vaibhav Rajput — The Modern Hybrid | Full-Stack Product Engineer',
   description:
-    'Full-stack software developer and B.Tech ECE engineer specializing in React, Node.js, PostgreSQL, and smart IoT systems.',
+    'Vibe Coder and Full-Stack Product Engineer building complete products across frontend, backend, databases, and connected IoT systems.',
   url: import.meta.env.VITE_SITE_URL || 'https://vaibhav-portfolio.netlify.app',
-  github: 'https://github.com/x-vaibhav',
-  linkedin: 'https://linkedin.com/in/x-vaibhav',
+  github: 'https://github.com/keenu2004-ai',
   institution: 'ABES Engineering College',
   location: 'India',
 };

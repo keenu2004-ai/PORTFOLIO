@@ -93,7 +93,7 @@ export const PROJECTS: Project[] = [
 
 export const PROFILE = {
   name: 'VAIBHAV RAJPUT',
-  role: 'Full-Stack Software Engineer',
+  role: 'Vibe Coder | Full-Stack Product Engineer',
   location: 'Ghaziabad, UP',
   education: 'B.Tech ECE, ABES Engineering College (2026)',
   github: 'https://github.com/keenu2004-ai',

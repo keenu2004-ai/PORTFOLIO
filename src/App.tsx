@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import BackgroundScene from './components/BackgroundScene';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -20,6 +22,15 @@ function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+
+  const [isWebGLAvailable] = useState(() => {
+    try {
+      const canvas = document.createElement('canvas');
+      return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+    } catch {
+      return false;
+    }
+  });
 
   useEffect(() => {
     const handlePopState = () => {
@@ -104,6 +115,20 @@ function App() {
           transform: `translate(${cursorPos.x - (isHovering ? 40 : 20)}px, ${cursorPos.y - (isHovering ? 40 : 20)}px)`,
         }}
       />
+
+      {isWebGLAvailable && (
+        <div className="global-canvas-container">
+          <Canvas 
+            camera={{ position: [0, 0, 15], fov: 60 }} 
+            dpr={[1, Math.min(2, window.devicePixelRatio || 1)]}
+            gl={{ antialias: false, powerPreference: 'high-performance' }}
+          >
+            <Suspense fallback={null}>
+              <BackgroundScene />
+            </Suspense>
+          </Canvas>
+        </div>
+      )}
 
       <Navbar />
       <main className="container" id="main-content">

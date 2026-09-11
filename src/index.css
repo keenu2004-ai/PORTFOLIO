@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  background-color: var(--bg-color);
+  background-color: transparent;
   color: var(--text-primary);
   font-family: 'Inter', -apple-system, system-ui, sans-serif;
   line-height: 1.5;

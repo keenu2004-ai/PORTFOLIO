@@ -1,7 +1,5 @@
-import { useEffect, useState, Suspense } from 'react';
-import { Canvas } from '@react-three/fiber';
+import { useEffect, useState } from 'react';
 import { PROFILE } from '../config/data';
-import NetworkScene from './NetworkScene';
 import './Hero.css';
 
 const SECTION_LINKS = [
@@ -17,14 +15,6 @@ const SECTION_LINKS = [
 
 const Hero = () => {
   const [activeSection, setActiveSection] = useState('hero');
-  const [isWebGLAvailable] = useState(() => {
-    try {
-      const canvas = document.createElement('canvas');
-      return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
-    } catch {
-      return false;
-    }
-  });
 
   useEffect(() => {
     const sections = SECTION_LINKS
@@ -54,15 +44,6 @@ const Hero = () => {
     <section id="hero" className="hero" aria-label="Hero Introduction">
       <div className="hero-background">
         <div className="gradient-sphere"></div>
-        {isWebGLAvailable && (
-          <div className="canvas-container">
-            <Canvas camera={{ position: [0, 0, 10], fov: 60 }} dpr={[1, 2]}>
-              <Suspense fallback={null}>
-                <NetworkScene />
-              </Suspense>
-            </Canvas>
-          </div>
-        )}
       </div>
 
       <div className="hero-content">
@@ -72,7 +53,7 @@ const Hero = () => {
 
         <div className="reveal-container">
           <h1 className="main-title reveal-text">
-            SYSTEMS <span className="outline">ENGINEER</span>
+            THE MODERN <span className="outline">HYBRID</span>
           </h1>
         </div>
 
@@ -85,7 +66,7 @@ const Hero = () => {
             <div className="hero-ctas">
               <button className="btn-primary" onClick={() => scrollToSection('projects')}>View Projects</button>
               <a href={PROFILE.github} target="_blank" rel="noopener noreferrer" className="btn-secondary">GitHub</a>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-secondary">Download Resume</a>
+              <a href="/Vaibhav_Arya_Resume.pdf" download="Vaibhav_Arya_Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-secondary">Download Resume</a>
             </div>
           </div>
           

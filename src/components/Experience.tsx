@@ -5,7 +5,7 @@ const Experience = () => {
   const timelineItems = [
     {
       period: '2023 — PRESENT',
-      role: 'Full-Stack Software Developer & Systems Architect',
+      role: 'Vibe Coder | Full-Stack Product Engineer',
       institution: 'Independent Projects & Open Source',
       category: 'Software Engineering & Production Builds',
       icon: <Code2 size={20} className="icon-purple" />,

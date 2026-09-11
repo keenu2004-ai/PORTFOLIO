@@ -31,14 +31,6 @@ const Footer = () => {
               >
                 GITHUB
               </a>
-              <a
-                href={SITE_CONFIG.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn Profile (opens in new tab)"
-              >
-                LINKEDIN
-              </a>
             </div>
 
             <div className="availability">

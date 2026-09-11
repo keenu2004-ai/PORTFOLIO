@@ -9,7 +9,7 @@
 }
 
 .skill-cat-box {
-  background-color: var(--bg-secondary);
+  background-color: transparent;
   padding: 40px;
   border-radius: 4px;
   border: 1px solid rgba(255, 255, 255, 0.05);

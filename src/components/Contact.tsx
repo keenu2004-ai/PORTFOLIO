@@ -1,31 +1,42 @@
 import { useState } from 'react';
 import { Send, CheckCircle2 } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from './SocialIcons';
+import { GithubIcon } from './SocialIcons';
 import './Contact.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
     setIsSubmitting(true);
+    setSubmitError('');
 
-    // Open mailto link prefilled with form content for transparent email client delivery
-    const mailSubject = encodeURIComponent(formData.subject || `Inquiry from ${formData.name}`);
-    const mailBody = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    window.location.href = `mailto:contact.vaibhavrajput@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
 
-    setTimeout(() => {
-      setIsSubmitting(false);
       setSubmitted(true);
-    }, 600);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setSubmitError('Message could not be sent. Please try again or contact me directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -34,7 +45,7 @@ const Contact = () => {
         <div className="section-header">
           <span className="section-tag">09 / Direct Inquiry</span>
           <h2 id="contact-heading" className="section-title">
-            Let's Build Something Production-Grade
+            REACH OUT
           </h2>
           <p className="section-subtitle">
             Open for full-stack &amp; software engineering roles, web applications, and hardware/IoT integrations.
@@ -44,14 +55,18 @@ const Contact = () => {
         <div className="contact-grid">
           {/* Left Direct Info */}
           <div className="contact-info-card">
-            <h3 className="info-title">Reach Out Directly</h3>
+            <h3 className="info-title">Connect directly through GitHub or send a message below.</h3>
             <p className="info-desc">
-              Have a project in mind, need a full-stack engineer for your team, or want to discuss HRMS &amp; IoT solutions? Connect directly via GitHub or LinkedIn.
+              Have a project in mind, building a product, or looking for a full-stack engineer?
+              <br/><br/>
+              I work across frontend, backend, databases, deployment, and connected hardware systems.
+              <br/><br/>
+              Use the form to send me a direct message. Keep it concise.
             </p>
 
             <div className="contact-methods">
               <a
-                href="https://github.com/x-vaibhav"
+                href="https://github.com/keenu2004-ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="method-item"
@@ -62,23 +77,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <span className="method-label">GitHub Repository</span>
-                  <span className="method-val">github.com/x-vaibhav</span>
-                </div>
-              </a>
-
-              <a
-                href="https://linkedin.com/in/x-vaibhav"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="method-item"
-                aria-label="Visit LinkedIn Profile"
-              >
-                <div className="method-icon green">
-                  <LinkedinIcon size={20} />
-                </div>
-                <div>
-                  <span className="method-label">LinkedIn Profile</span>
-                  <span className="method-val">linkedin.com/in/x-vaibhav</span>
+                  <span className="method-val">github.com/keenu2004-ai</span>
                 </div>
               </a>
             </div>
@@ -101,12 +100,13 @@ const Contact = () => {
             {submitted ? (
               <div className="form-success">
                 <CheckCircle2 size={48} className="success-icon" />
-                <h4>Message Prepared in Email Client</h4>
-                <p>Your default email app has been opened with your prefilled message!</p>
+                <h4>Sent ✓</h4>
+                <p>Thank you for reaching out. I'll get back to you shortly.</p>
                 <button
                   onClick={() => setSubmitted(false)}
                   className="btn-secondary btn-sm"
                   type="button"
+                  style={{marginTop: '1rem'}}
                 >
                   Send Another Message
                 </button>
@@ -161,12 +161,14 @@ const Contact = () => {
                   ></textarea>
                 </div>
 
+                {submitError && <p className="form-error" style={{color: '#ff4d4f', fontSize: '0.9rem', marginBottom: '1rem'}}>{submitError}</p>}
+
                 <button type="submit" disabled={isSubmitting} className="btn-primary w-full">
                   {isSubmitting ? (
-                    'Opening Email Client...'
+                    'Sending...'
                   ) : (
                     <>
-                      <Send size={18} /> Open Direct Inquiry
+                      <Send size={18} /> Send
                     </>
                   )}
                 </button>
