@@ -1,0 +1,29 @@
+﻿services:
+  portfolio-web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    ports:
+      - "127.0.0.1:3000:80"
+    networks:
+      - portfolio-net
+    depends_on:
+      - portfolio-api
+    restart: unless-stopped
+
+  portfolio-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    environment:
+      - PORT=3001
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - CONTACT_TO_EMAIL=${CONTACT_TO_EMAIL}
+      - CONTACT_FROM_EMAIL=${CONTACT_FROM_EMAIL}
+    networks:
+      - portfolio-net
+    restart: unless-stopped
+
+networks:
+  portfolio-net:
+    driver: bridge
