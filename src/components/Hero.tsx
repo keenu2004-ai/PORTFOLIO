@@ -66,7 +66,7 @@ const Hero = () => {
             <div className="hero-ctas">
               <button className="btn-primary" onClick={() => scrollToSection('projects')}>View Projects</button>
               <a href={PROFILE.github} target="_blank" rel="noopener noreferrer" className="btn-secondary">GitHub</a>
-              <a href="/Vaibhav_Arya_Resume.pdf" download="Vaibhav_Arya_Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-secondary">Download Resume</a>
+              <a href="/Vaibhav_Resume.pdf" download="Vaibhav_Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-secondary">Download Resume</a>
             </div>
           </div>
           
