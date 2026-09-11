@@ -1,22 +1,27 @@
+import { SKILLS } from '../config/data';
 import './Skills.css';
 
 const Skills = () => {
   const skillCategories = [
     {
-      title: 'FRONTEND',
-      skills: ['React', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Vite']
+      title: 'FRONTEND & WEBGL',
+      skills: SKILLS.frontend
     },
     {
-      title: 'BACKEND',
-      skills: ['Node.js', 'Express', 'PostgreSQL', 'RESTful APIs']
+      title: 'BACKEND & APIs',
+      skills: SKILLS.backend
     },
     {
-      title: 'IOT & HARDWARE',
-      skills: ['Arduino', 'ESP8266/ESP32', 'Embedded C', 'IoT Protocols']
+      title: 'DATABASE & ARCHITECTURE',
+      skills: SKILLS.database
     },
     {
-      title: 'TOOLS',
-      skills: ['Git', 'GitHub', 'Bash', 'Postman', 'VS Code']
+      title: 'INFRASTRUCTURE & TOOLS',
+      skills: SKILLS.devops
+    },
+    {
+      title: 'IOT & EMBEDDED SYSTEMS',
+      skills: SKILLS.embedded
     }
   ];
 

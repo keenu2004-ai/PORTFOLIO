@@ -1,4 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { PROFILE } from '../config/data';
+import NetworkScene from './NetworkScene';
 import './Hero.css';
 
 const SECTION_LINKS = [
@@ -14,6 +17,14 @@ const SECTION_LINKS = [
 
 const Hero = () => {
   const [activeSection, setActiveSection] = useState('hero');
+  const [isWebGLAvailable] = useState(() => {
+    try {
+      const canvas = document.createElement('canvas');
+      return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+    } catch {
+      return false;
+    }
+  });
 
   useEffect(() => {
     const sections = SECTION_LINKS
@@ -43,24 +54,41 @@ const Hero = () => {
     <section id="hero" className="hero" aria-label="Hero Introduction">
       <div className="hero-background">
         <div className="gradient-sphere"></div>
+        {isWebGLAvailable && (
+          <div className="canvas-container">
+            <Canvas camera={{ position: [0, 0, 10], fov: 60 }} dpr={[1, 2]}>
+              <Suspense fallback={null}>
+                <NetworkScene />
+              </Suspense>
+            </Canvas>
+          </div>
+        )}
       </div>
 
       <div className="hero-content">
         <div className="reveal-container">
-          <p className="intro reveal-text">VAIBHAV RAJPUT / FULL-STACK &amp; IOT ENGINEER</p>
+          <p className="intro reveal-text">{PROFILE.name} / {PROFILE.role.toUpperCase()}</p>
         </div>
 
         <div className="reveal-container">
           <h1 className="main-title reveal-text">
-            CREATIVE <span className="outline">DEVELOPER</span>
+            SYSTEMS <span className="outline">ENGINEER</span>
           </h1>
         </div>
 
         <div className="hero-footer reveal-text">
-          <p className="description">
-            Specializing in full-stack web software platforms and smart IoT hardware integration.
-            Pursuing B.Tech ECE at ABES Engineering College.
-          </p>
+          <div className="description-container">
+            <p className="description">
+              Building full-stack web applications and connected IoT hardware ecosystems.
+              From API and database design to frontend execution and embedded telemetry.
+            </p>
+            <div className="hero-ctas">
+              <button className="btn-primary" onClick={() => scrollToSection('projects')}>View Projects</button>
+              <a href={PROFILE.github} target="_blank" rel="noopener noreferrer" className="btn-secondary">GitHub</a>
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-secondary">Download Resume</a>
+            </div>
+          </div>
+          
           <button
             type="button"
             className="scroll-indicator"

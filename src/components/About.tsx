@@ -1,4 +1,5 @@
 import { Layout, Cpu, Code2 } from 'lucide-react';
+import { PROFILE } from '../config/data';
 import './About.css';
 
 const About = () => {
@@ -33,18 +34,17 @@ const About = () => {
 
         <div className="about-content">
           <h2 id="about-heading" className="section-title reveal-text">
-            WHO IS / VAIBHAV?
+            WHO IS / {PROFILE.name.split(' ')[0]}?
           </h2>
           <div className="about-description reveal-text">
             <p className="resume-intro">
-              An enthusiastic full-stack software developer pursuing a
-              Bachelor of Technology in Electronics and Communication Engineering at ABES Engineering College.
+              I build full-stack applications and take them from interface to API, database, deployment, and the problems that appear after launch.
             </p>
             <p>
-              Driven by the synergy between physical hardware and cloud software systems, I bridge low-level microcontrollers with high-throughput digital interfaces.
+              Currently pursuing a B.Tech in Electronics and Communication Engineering at ABES Engineering College, I split my focus between web infrastructure and hardware telemetry.
             </p>
             <p>
-              My engineering portfolio ranges from designing full-scale enterprise software systems like the <strong>Theiakshi HRMS</strong> platform to prototyping intelligent telemetry nodes like the <strong>Solar Defect Detection</strong> system.
+              My work ranges from engineering production-oriented enterprise platforms like the <strong>THEIAKSHI ONE</strong> HRMS to wiring physical microcontrollers for IoT telemetry networks. I prioritize functional architecture, robust APIs, and relational data integrity over buzzwords.
             </p>
           </div>
         </div>

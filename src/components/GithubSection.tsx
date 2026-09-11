@@ -1,46 +1,41 @@
-import { Star, GitFork, ExternalLink, Code, Database, Cpu } from 'lucide-react';
+import { ExternalLink, Code, Database, Cpu } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
+import { PROFILE } from '../config/data';
 import './GithubSection.css';
 
 const GithubSection = () => {
   const repositories = [
     {
-      name: 'Theiakshi-One',
+      name: 'RANSOM (Theiakshi-One)',
       desc: 'Enterprise Human Resource & Attendance Management System with PostgreSQL database and RBAC permissions.',
       language: 'TypeScript / React',
       langColor: '#3178c6',
-      stars: '4',
-      forks: '1',
-      url: 'https://github.com/x-vaibhav/Theiakshi-One',
+      url: 'https://github.com/keenu2004-ai/RANSOM',
     },
     {
-      name: 'fitzone-gym',
+      name: 'PORTFOLIO',
+      desc: 'A premium, technically credible engineering portfolio integrating 3D WebGL visuals.',
+      language: 'TypeScript / React Three Fiber',
+      langColor: '#3178c6',
+      url: 'https://github.com/keenu2004-ai/PORTFOLIO',
+    },
+    {
+      name: 'GYM-WEB',
       desc: 'Full-stack gym membership management software with class scheduling and admin dashboard.',
       language: 'JavaScript / Node',
       langColor: '#f1e05a',
-      stars: '3',
-      forks: '0',
-      url: 'https://github.com/x-vaibhav/fitzone-gym',
+      url: 'https://github.com/keenu2004-ai/GYM-WEB',
     },
     {
-      name: 'solar-defect-detection',
-      desc: 'IoT real-time fault monitoring system for solar PV panels using ESP8266 and sensors.',
-      language: 'C++ / Embedded',
-      langColor: '#f34b7d',
-      stars: '5',
-      forks: '2',
-      url: 'https://github.com/x-vaibhav/solar-defect-detection',
-    },
-    {
-      name: 'phonepe-clone',
+      name: 'PhonePe-Clone',
       desc: 'High-fidelity pixel-perfect React replica of the PhonePe mobile payment platform interface.',
       language: 'TypeScript / CSS',
       langColor: '#3178c6',
-      stars: '2',
-      forks: '0',
-      url: 'https://github.com/x-vaibhav/phonepe-clone',
+      url: 'https://github.com/keenu2004-ai/PhonePe-Clone',
     },
   ];
+
+  const githubHandle = PROFILE.github.split('/').pop() || 'keenu2004-ai';
 
   return (
     <section id="github" className="github-section">
@@ -61,14 +56,14 @@ const GithubSection = () => {
                 <GithubIcon size={32} />
               </div>
               <div className="profile-info">
-                <h3>Vaibhav</h3>
+                <h3>{PROFILE.name.split(' ')[0]}</h3>
                 <a
-                  href="https://github.com/x-vaibhav"
+                  href={PROFILE.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="profile-handle"
                 >
-                  @x-vaibhav <ExternalLink size={14} />
+                  @{githubHandle} <ExternalLink size={14} />
                 </a>
               </div>
             </div>
@@ -93,7 +88,7 @@ const GithubSection = () => {
             </div>
 
             <a
-              href="https://github.com/x-vaibhav"
+              href={PROFILE.github}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary w-full"
@@ -121,10 +116,6 @@ const GithubSection = () => {
                   <div className="repo-lang">
                     <span className="lang-dot" style={{ backgroundColor: repo.langColor }}></span>
                     <span>{repo.language}</span>
-                  </div>
-                  <div className="repo-counters">
-                    <span><Star size={14} /> {repo.stars}</span>
-                    <span><GitFork size={14} /> {repo.forks}</span>
                   </div>
                 </div>
               </a>

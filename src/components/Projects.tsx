@@ -1,62 +1,39 @@
-import { ExternalLink } from 'lucide-react';
+import { useState } from 'react';
+import { ExternalLink, Info } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
+import ProjectModal from './ProjectModal';
+import { PROJECTS } from '../config/data';
+import type { Project } from '../config/data';
+import './Projects.css';
+
+// SVG imports - mapping these directly for simplicity since data.ts shouldn't contain React components
 import solarSvg from '../assets/projects/solar-iot.svg';
 import fitzoneSvg from '../assets/projects/fitzone-gym.svg';
 import phonepeSvg from '../assets/projects/phonepe-clone.svg';
 import ardumistSvg from '../assets/projects/ardumist-iot.svg';
-import './Projects.css';
+import portfolioSvg from '../assets/projects/phonepe-clone.svg'; // Reuse or add portfolio svg if needed
+
+const imageMap: Record<string, string> = {
+  'solar-defect': solarSvg,
+  'fitzone': fitzoneSvg,
+  'phonepe-clone': phonepeSvg,
+  'ardumist': ardumistSvg,
+  'portfolio': portfolioSvg
+};
+
+const colorMap: Record<string, string> = {
+  'solar-defect': '#ff9800',
+  'fitzone': '#ff0055',
+  'phonepe-clone': '#a855f7',
+  'ardumist': '#22c55e',
+  'portfolio': '#00f0ff'
+};
 
 const Projects = () => {
-  const projects = [
-    {
-      id: '01',
-      title: 'SOLAR DEFECT DETECTION',
-      category: 'IoT / EMBEDDED TELEMETRY',
-      description:
-        'Real-time fault monitoring & telemetry system for PV solar arrays using ESP8266 microcontrollers and threshold sensing algorithms.',
-      tech: ['ESP8266', 'C++', 'Analog Sensing', 'Wi-Fi Telemetry'],
-      color: '#ff9800',
-      github: 'https://github.com/x-vaibhav/solar-defect-detection',
-      image: solarSvg,
-      imageAlt: 'Solar PV Defect Detection IoT Circuit Telemetry Diagram',
-    },
-    {
-      id: '02',
-      title: 'FITZONE GYM SYSTEM',
-      category: 'FULL-STACK SOFTWARE',
-      description:
-        'Comprehensive gym membership management platform with interactive class scheduling, user bookings, and administrative control panels.',
-      tech: ['React', 'PostgreSQL', 'Node.js', 'Express API'],
-      color: '#ff0055',
-      github: 'https://github.com/x-vaibhav/fitzone-gym',
-      image: fitzoneSvg,
-      imageAlt: 'Fitzone Gym Management Dashboard Interface Screenshot',
-    },
-    {
-      id: '03',
-      title: 'PHONEPE UI CLONE',
-      category: 'FRONTEND PRECISION',
-      description:
-        'High-fidelity pixel-perfect React replica of the PhonePe mobile payment landing platform, focused on interface precision and layout integrity.',
-      tech: ['React', 'TypeScript', 'CSS3 Layout', 'Vite'],
-      color: '#a855f7',
-      github: 'https://github.com/x-vaibhav/phonepe-clone',
-      image: phonepeSvg,
-      imageAlt: 'PhonePe UI Mobile Landing Page Clone Replica Interface',
-    },
-    {
-      id: '04',
-      title: 'ARDUMIST HACKATHON NODE',
-      category: 'HARDWARE / INNOVATION',
-      description:
-        'Automated greenhouse micro-climate misting control system engineered under strict 24-hour hackathon constraints with Arduino boards.',
-      tech: ['Arduino C++', 'DHT Sensors', 'Micro-Relays'],
-      color: '#22c55e',
-      github: 'https://github.com/x-vaibhav',
-      image: ardumistSvg,
-      imageAlt: 'ArduMist Smart Microcontroller Prototype Wiring Layout',
-    },
-  ];
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  // Filter out the flagship (theiakshi-one) and only show featured projects
+  const displayProjects = PROJECTS.filter(p => p.id !== 'theiakshi-one');
 
   return (
     <section id="projects" className="projects" aria-labelledby="projects-heading">
@@ -68,55 +45,91 @@ const Projects = () => {
       </div>
 
       <div className="projects-container">
-        {projects.map((project) => (
-          <div key={project.id} className="project-feature">
-            <div className="project-info scale-up">
-              <span className="project-number">{project.id}</span>
-              <p className="project-cat">{project.category}</p>
-              <h3 className="project-name">{project.title}</h3>
-              <p className="project-desc">{project.description}</p>
+        {displayProjects.map((project, index) => {
+          const numStr = (index + 1).toString().padStart(2, '0');
+          const color = colorMap[project.id] || '#00f0ff';
+          const image = imageMap[project.id];
+          
+          return (
+            <div key={project.id} className="project-feature">
+              <div className="project-info scale-up">
+                <span className="project-number">{numStr}</span>
+                <p className="project-cat">{project.category} • {project.status}</p>
+                <h3 className="project-name">{project.title}</h3>
+                <p className="project-desc">{project.description}</p>
 
-              <div className="project-tech">
-                {project.tech.map((t) => (
-                  <span key={t}>{t}</span>
-                ))}
+                <div className="project-tech">
+                  {project.technologies.slice(0, 4).map((t) => (
+                    <span key={t}>{t}</span>
+                  ))}
+                  {project.technologies.length > 4 && <span>+{project.technologies.length - 4}</span>}
+                </div>
+
+                <div className="project-links">
+                  <button 
+                    className="project-btn" 
+                    onClick={() => setSelectedProject(project)}
+                    aria-label={`View case study for ${project.title}`}
+                  >
+                    <Info size={16} /> Case Study
+                  </button>
+                  
+                  {project.repository && (
+                    <a
+                      href={project.repository}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-btn"
+                      aria-label={`View GitHub repository for ${project.title}`}
+                    >
+                      <GithubIcon size={16} /> Repository <ExternalLink size={14} />
+                    </a>
+                  )}
+                  
+                  {project.liveDemo && (
+                    <a
+                      href={project.liveDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-btn"
+                      aria-label={`View live demo for ${project.title}`}
+                    >
+                      Live Demo <ExternalLink size={14} />
+                    </a>
+                  )}
+                </div>
               </div>
 
-              <div className="project-links">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-btn"
-                  aria-label={`View GitHub repository for ${project.title}`}
+              <div className="project-visual scale-up">
+                <div
+                  className="visual-box"
+                  style={{ backgroundColor: color + '10', borderColor: color + '40' }}
                 >
-                  <GithubIcon size={16} /> Repository <ExternalLink size={14} />
-                </a>
+                  {image ? (
+                    <img
+                      src={image}
+                      alt={`${project.title} Interface`}
+                      className="project-img-preview"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="floating-title" style={{ color: color }}>
+                      {numStr}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
-
-            <div className="project-visual scale-up">
-              <div
-                className="visual-box"
-                style={{ backgroundColor: project.color + '10', borderColor: project.color + '40' }}
-              >
-                {project.image ? (
-                  <img
-                    src={project.image}
-                    alt={project.imageAlt}
-                    className="project-img-preview"
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="floating-title" style={{ color: project.color }}>
-                    {project.id}
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
+
+      {selectedProject && (
+        <ProjectModal 
+          project={selectedProject} 
+          onClose={() => setSelectedProject(null)} 
+        />
+      )}
     </section>
   );
 };

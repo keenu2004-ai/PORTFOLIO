@@ -1,33 +1,38 @@
 import { useState } from 'react';
-import { Layers, Server, Database, Container, Shield, ExternalLink, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Layers, Server, Database, Container, Shield, CheckCircle2, ArrowRight } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
 import hrmsSvg from '../assets/projects/theiakshi-hrms.svg';
+import { PROJECTS } from '../config/data';
 import './FlagshipProject.css';
 
 const FlagshipProject = () => {
-  const [activeTab, setActiveTab] = useState<'preview' | 'architecture' | 'modules'>('preview');
+  const [activeTab, setActiveTab] = useState<'preview' | 'architecture' | 'engineering'>('preview');
+  
+  const project = PROJECTS.find(p => p.id === 'theiakshi-one');
+
+  if (!project) return null;
 
   const modules = [
     {
-      title: 'Employee Management',
-      desc: 'Centralized directory storing employee profiles, department mapping, role assignments, and onboarding workflows.',
+      title: 'Decoupled Identity & RBAC',
+      desc: 'USER != EMPLOYEE != ROLE identity separation. Organization-level data isolation and granular backend authorization checks.',
     },
     {
-      title: 'Biometric & Attendance Engine',
-      desc: 'Real-time attendance logging with check-in timestamps, monthly regularizations, and biometric exception tracking.',
+      title: 'Attendance & Geofencing',
+      desc: 'Location-aware punch-in/out with latitude/longitude validation, shift tracking, and robust regularization workflows.',
     },
     {
-      title: 'Leave & Rollover Engine',
-      desc: 'Automated leave requests approval system, yearly leave carry-forward/rollovers, and leave quota calculations.',
+      title: 'Security & Authentication',
+      desc: 'HTTP-only cookies, JWT auth without localStorage exposure, BOLA/IDOR mitigation, and Microsoft SSO with JWKS validation.',
     },
     {
-      title: 'Role-Based Access Control (RBAC)',
-      desc: 'Granular permissions differentiating Admin, HR Manager, Department Head, and Employee portal access.',
+      title: 'Robust Backend Engineering',
+      desc: 'Modular Express routes, parameterized SQL repositories, transactional PostgreSQL helpers, and centralized API client.',
     },
     {
-      title: 'SQL Schema & Migrations',
-      desc: 'Structured PostgreSQL schema with migration tracking scripts (v023_rollover.sql) ensuring data integrity.',
-    },
+      title: 'DevOps & Deployment',
+      desc: 'Dockerized environments, CI/CD pipelines, robust database migrations, and Render deployment configurations.',
+    }
   ];
 
   return (
@@ -35,38 +40,32 @@ const FlagshipProject = () => {
       <div className="container">
         <div className="section-header">
           <span className="section-tag">03 / Flagship Showcase</span>
-          <h2 className="section-title">Theiakshi HRMS</h2>
+          <h2 className="section-title">{project.title}</h2>
           <p className="section-subtitle">
-            Enterprise-Style Human Resource &amp; Attendance Management System engineered with React, Node.js, Express, and PostgreSQL.
+            {project.description}
           </p>
         </div>
 
         <div className="flagship-card">
-          {/* Top Banner Bar */}
           <div className="flagship-banner">
             <div className="flagship-title-group">
-              <span className="flagship-badge">FLAGSHIP PRODUCTION SYSTEM</span>
-              <h3 className="flagship-name">Theiakshi-One Enterprise HRMS</h3>
+              <span className="flagship-badge">{project.status.toUpperCase()}</span>
+              <h3 className="flagship-name">Theiakshi-One Platform</h3>
             </div>
             <div className="flagship-actions">
-              <a
-                href="https://github.com/x-vaibhav/Theiakshi-One"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary btn-sm"
-              >
-                <GithubIcon size={16} /> Repository
-              </a>
-              <a
-                href="#contact"
-                className="btn-primary btn-sm"
-              >
-                Request Walkthrough <ExternalLink size={16} />
-              </a>
+              {project.repository && (
+                <a
+                  href={project.repository}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary btn-sm"
+                >
+                  <GithubIcon size={16} /> Repository
+                </a>
+              )}
             </div>
           </div>
 
-          {/* Controls Bar */}
           <div className="flagship-nav-tabs">
             <button
               className={`tab-link ${activeTab === 'preview' ? 'active' : ''}`}
@@ -81,14 +80,13 @@ const FlagshipProject = () => {
               System Architecture
             </button>
             <button
-              className={`tab-link ${activeTab === 'modules' ? 'active' : ''}`}
-              onClick={() => setActiveTab('modules')}
+              className={`tab-link ${activeTab === 'engineering' ? 'active' : ''}`}
+              onClick={() => setActiveTab('engineering')}
             >
-              Core Modules
+              Engineering Depth
             </button>
           </div>
 
-          {/* Main Content Area */}
           <div className="flagship-content">
             {activeTab === 'preview' && (
               <div className="flagship-preview-view">
@@ -101,15 +99,12 @@ const FlagshipProject = () => {
                 </div>
                 <div className="preview-caption">
                   <div className="caption-text">
-                    <h4>Production Dashboard View</h4>
-                    <p>Live workforce stats, biometric attendance monitoring, and leave regularization workflow.</p>
+                    <h4>Implementation Overview</h4>
+                    <p>{project.implementation}</p>
+                    <p style={{marginTop: '10px'}}>{project.purpose}</p>
                   </div>
                   <div className="caption-stack">
-                    <span>React</span>
-                    <span>Node.js</span>
-                    <span>Express</span>
-                    <span>PostgreSQL</span>
-                    <span>Docker</span>
+                    {project.technologies.slice(0, 5).map(t => <span key={t}>{t}</span>)}
                   </div>
                 </div>
               </div>
@@ -121,8 +116,8 @@ const FlagshipProject = () => {
                   <div className="arch-step">
                     <div className="arch-icon cyan"><Layers size={22} /></div>
                     <span className="arch-layer">FRONTEND LAYER</span>
-                    <span className="arch-tech">React + TypeScript</span>
-                    <p>Modular UI components, dashboard widgets, and state management.</p>
+                    <span className="arch-tech">React + Vite + Tailwind</span>
+                    <p>Role-aware dashboards, API-driven workflows, and strict permission-based UI rendering.</p>
                   </div>
 
                   <div className="arch-arrow"><ArrowRight size={20} /></div>
@@ -130,8 +125,8 @@ const FlagshipProject = () => {
                   <div className="arch-step">
                     <div className="arch-icon purple"><Server size={22} /></div>
                     <span className="arch-layer">BACKEND LAYER</span>
-                    <span className="arch-tech">Node.js + Express</span>
-                    <p>RESTful APIs, JWT Auth controllers, and regularization endpoints.</p>
+                    <span className="arch-tech">Node.js + Express (TS)</span>
+                    <p>Centralized auth, strict CORS, rate-limiting, and comprehensive REST API endpoints.</p>
                   </div>
 
                   <div className="arch-arrow"><ArrowRight size={20} /></div>
@@ -140,22 +135,13 @@ const FlagshipProject = () => {
                     <div className="arch-icon green"><Database size={22} /></div>
                     <span className="arch-layer">DATABASE LAYER</span>
                     <span className="arch-tech">PostgreSQL DB</span>
-                    <p>Relational tables, indexed attendance records, and SQL migrations.</p>
-                  </div>
-
-                  <div className="arch-arrow"><ArrowRight size={20} /></div>
-
-                  <div className="arch-step">
-                    <div className="arch-icon orange"><Container size={22} /></div>
-                    <span className="arch-layer">CONTAINER &amp; PROXY</span>
-                    <span className="arch-tech">Docker + Nginx</span>
-                    <p>Isolated containers, reverse proxy routing, and static asset serving.</p>
+                    <p>35-table relational schema, tenant isolation, and strict referential integrity.</p>
                   </div>
                 </div>
               </div>
             )}
 
-            {activeTab === 'modules' && (
+            {activeTab === 'engineering' && (
               <div className="flagship-modules-view">
                 <div className="modules-grid">
                   {modules.map((mod, idx) => (
@@ -172,19 +158,18 @@ const FlagshipProject = () => {
             )}
           </div>
 
-          {/* Footer Details Bar */}
           <div className="flagship-footer-bar">
             <div className="foot-spec">
               <Shield size={16} className="cyan" />
-              <span>Role-Based Permissions &amp; Data Integrity</span>
+              <span>HTTP-Only JWT &amp; Security Hardened</span>
             </div>
             <div className="foot-spec">
               <Database size={16} className="green" />
-              <span>PostgreSQL Relational Storage</span>
+              <span>PostgreSQL (35+ Tables)</span>
             </div>
             <div className="foot-spec">
               <Container size={16} className="orange" />
-              <span>Containerized Infrastructure Ready</span>
+              <span>Docker &amp; CI/CD Pipeline</span>
             </div>
           </div>
         </div>
