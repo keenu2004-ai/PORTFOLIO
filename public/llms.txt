@@ -6,10 +6,10 @@
 Vaibhav is a developer specializing in full-stack web software systems (React, Node.js, Express, PostgreSQL) and hardware/IoT integration (ESP8266, C++, sensor telemetry).
 
 ## Key Projects
-- **Theiakshi HRMS**: Enterprise Human Resource & Attendance Management System built with React, Node.js, Express, and PostgreSQL featuring biometric regularization workflows and RBAC permissions. (Repository: https://github.com/x-vaibhav/Theiakshi-One)
-- **Solar Defect Detection**: IoT real-time fault monitoring system for solar PV panels using ESP8266 microcontrollers and threshold logic. (Repository: https://github.com/x-vaibhav/solar-defect-detection)
-- **Fitzone Gym System**: Full-stack gym membership platform with class scheduling and administrative dashboard. (Repository: https://github.com/x-vaibhav/fitzone-gym)
-- **PhonePe UI Clone**: High-fidelity pixel-perfect React replica of the PhonePe landing page focused on UI layout precision. (Repository: https://github.com/x-vaibhav/phonepe-clone)
+- **Theiakshi HRMS**: Enterprise Human Resource & Attendance Management System built with React, Node.js, Express, and PostgreSQL featuring biometric regularization workflows and RBAC permissions. (Repository: https://github.com/keenu2004-ai/Theiakshi-One)
+- **Solar Defect Detection**: IoT real-time fault monitoring system for solar PV panels using ESP8266 microcontrollers and threshold logic. (Repository: https://github.com/keenu2004-ai/solar-defect-detection)
+- **Fitzone Gym System**: Full-stack gym membership platform with class scheduling and administrative dashboard. (Repository: https://github.com/keenu2004-ai/GYM-WEB)
+- **PhonePe UI Clone**: High-fidelity pixel-perfect React replica of the PhonePe landing page focused on UI layout precision. (Repository: https://github.com/keenu2004-ai/PhonePe-Clone)
 - **ArduMist Hackathon**: Smart automated greenhouse micro-climate solution built using Arduino during a 24-hour hackathon.
 
 ## Technical Skills
@@ -23,5 +23,5 @@ Vaibhav is a developer specializing in full-stack web software systems (React, N
   - Institution: ABES Engineering College (Expected 2026)
 
 ## Links & Contact
-- **GitHub**: https://github.com/x-vaibhav
+- **GitHub**: https://github.com/keenu2004-ai
 - **Portfolio**: https://vaibhav-portfolio.netlify.app/

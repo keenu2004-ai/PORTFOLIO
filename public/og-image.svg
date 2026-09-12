@@ -37,5 +37,5 @@
   <!-- Footer Bar -->
   <line x1="120" y1="460" x2="1080" y2="460" stroke="#1f2438" stroke-width="1"/>
   <text x="120" y="505" font-family="sans-serif" font-size="16" font-weight="500" fill="#6c7a9c">ABES Engineering College • B.Tech ECE</text>
-  <text x="1080" y="505" text-anchor="end" font-family="sans-serif" font-size="16" font-weight="600" fill="#00f0ff">github.com/x-vaibhav</text>
+  <text x="1080" y="505" text-anchor="end" font-family="sans-serif" font-size="16" font-weight="600" fill="#00f0ff">github.com/keenu2004-ai</text>
 </svg>
