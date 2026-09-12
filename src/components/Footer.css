@@ -1,4 +1,4 @@
-.footer {
+﻿.footer {
   padding: 150px 0 50px;
   background-color: transparent;
   overflow: hidden; /* Prevent drifting */
@@ -144,11 +144,11 @@
     grid-template-columns: 1fr;
     gap: 60px;
   }
-  
+
   .contact-right {
     justify-content: center;
   }
-  
+
   .contact-big-title {
     white-space: normal;
   }
@@ -158,7 +158,7 @@
   .contact-card {
     padding: 30px;
   }
-  
+
   .footer-mini {
     flex-direction: column;
     gap: 20px;

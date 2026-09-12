@@ -1,4 +1,4 @@
-.cert-feature {
+﻿.cert-feature {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 60px;
@@ -65,5 +65,15 @@
     grid-template-columns: 1fr;
     padding: 40px;
     gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cert-feature {
+    padding: 20px;
+  }
+  .cert-footer {
+    flex-direction: column;
+    gap: 15px;
   }
 }

@@ -1,4 +1,4 @@
-.flagship-card {
+﻿.flagship-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
@@ -248,5 +248,30 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .flagship-banner,
+  .flagship-content,
+  .flagship-nav-tabs,
+  .flagship-footer-bar {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .flagship-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .flagship-actions .btn-sm {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .caption-stack {
+    flex-wrap: wrap;
   }
 }

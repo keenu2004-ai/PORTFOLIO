@@ -17,6 +17,12 @@
   margin: 0;
   padding: 0;
   cursor: none;
+  overflow-wrap: break-word;
+}
+
+img, video, svg {
+  max-width: 100%;
+  height: auto;
 }
 
 html {

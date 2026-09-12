@@ -1,4 +1,4 @@
-.navbar {
+﻿.navbar {
   position: fixed;
   top: 0;
   width: 100%;
@@ -85,7 +85,9 @@
   border: none;
   color: #ffffff;
   cursor: pointer;
-  padding: 8px;
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: 6px;
 }
 

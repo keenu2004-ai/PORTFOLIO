@@ -1,4 +1,4 @@
-.github-grid {
+﻿.github-grid {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
   gap: 32px;
@@ -162,7 +162,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .repos-grid {
     grid-template-columns: 1fr;
   }

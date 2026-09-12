@@ -1,4 +1,4 @@
-.section-header-wrap {
+﻿.section-header-wrap {
   margin-bottom: 4rem;
 }
 
@@ -139,5 +139,16 @@
 
   .projects-container {
     gap: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-links {
+    flex-wrap: wrap;
+  }
+
+  .project-btn {
+    width: 100%;
+    justify-content: center;
   }
 }

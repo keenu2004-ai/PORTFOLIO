@@ -1,4 +1,4 @@
-.pipeline-wrapper {
+﻿.pipeline-wrapper {
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -171,5 +171,20 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nodes-flow-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .node-detail-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nodes-flow-bar {
+    grid-template-columns: 1fr;
   }
 }

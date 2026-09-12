@@ -1,4 +1,4 @@
-.about {
+﻿.about {
   position: relative;
   z-index: 10;
   overflow: visible;
@@ -128,4 +128,14 @@
   .pinterest-grid {
     height: 380px;
   }
+}
+
+@media (max-width: 768px) {
+  .pinterest-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    height: auto;
+  }
+
+  .item-1 { grid-row: span 1; }
 }

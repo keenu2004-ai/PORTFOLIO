@@ -1,4 +1,4 @@
-.hero {
+﻿.hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -253,15 +253,25 @@
 
 @media (max-width: 768px) {
   .main-title {
-    letter-spacing: -3px;
-    font-size: clamp(50px, 18vw, 100px);
+    letter-spacing: -2px;
+    font-size: clamp(40px, 12vw, 100px);
   }
 
   .hero-footer {
     flex-direction: column;
     align-items: flex-start;
-    gap: 40px;
+    gap: 30px;
     padding-right: 0;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-ctas button, .hero-ctas a {
+    width: 100%;
+    text-align: center;
   }
 
   .scroll-indicator {

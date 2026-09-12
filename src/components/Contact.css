@@ -1,4 +1,4 @@
-.contact-grid {
+﻿.contact-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   gap: 32px;
@@ -178,7 +178,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .form-row {
     grid-template-columns: 1fr;
   }
