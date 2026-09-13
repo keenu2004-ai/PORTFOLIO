@@ -1,16 +1,4 @@
-﻿services:
-  portfolio-web:
-    build:
-      context: .
-      dockerfile: Dockerfile.web
-    ports:
-      - "127.0.0.1:3000:80"
-    networks:
-      - portfolio-net
-    depends_on:
-      - portfolio-api
-    restart: unless-stopped
-
+services:
   portfolio-api:
     build:
       context: .
@@ -22,6 +10,25 @@
       - CONTACT_FROM_EMAIL=${CONTACT_FROM_EMAIL}
     networks:
       - portfolio-net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3001/api/health').then(r => { if (!r.ok) process.exit(1) }).catch(() => process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  portfolio-web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    ports:
+      - "127.0.0.1:3000:80"
+    networks:
+      - portfolio-net
+    depends_on:
+      portfolio-api:
+        condition: service_healthy
     restart: unless-stopped
 
 networks:
