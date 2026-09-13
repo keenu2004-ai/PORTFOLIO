@@ -18,8 +18,26 @@ if (missingVars.length > 0) {
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Basic security middleware
-app.use(cors());
-app.use(express.json({ limit: '10kb' })); // Protection against oversized bodies
+const allowedOrigins = (process.env.CORS_ORIGINS || '')
+  .split(',')
+  .map(origin => origin.trim())
+  .filter(Boolean);
+
+app.use(cors({
+  origin: allowedOrigins.length ? allowedOrigins : false,
+  methods: ['GET', 'POST'],
+  optionsSuccessStatus: 204,
+}));
+
+app.use((req, res, next) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  next();
+});
+
+app.use(express.json({ limit: '10kb' }));
 
 // Rate limiter for contact form
 const contactLimiter = rateLimit({
@@ -33,6 +51,15 @@ const contactLimiter = rateLimit({
 app.post('/api/contact', contactLimiter, async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
+
+    if (
+      typeof name !== 'string' ||
+      typeof email !== 'string' ||
+      typeof message !== 'string' ||
+      (subject !== undefined && typeof subject !== 'string')
+    ) {
+      return res.status(400).json({ error: 'Invalid request payload' });
+    }
 
     // Validation matching previous serverless function
     if (!name || !email || !message) {

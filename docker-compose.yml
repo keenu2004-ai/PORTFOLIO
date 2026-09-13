@@ -5,6 +5,7 @@ services:
       dockerfile: Dockerfile.api
     environment:
       - PORT=3001
+      - CORS_ORIGINS=https://portfolio.vaibhavcloud.cloud
       - RESEND_API_KEY=${RESEND_API_KEY}
       - CONTACT_TO_EMAIL=${CONTACT_TO_EMAIL}
       - CONTACT_FROM_EMAIL=${CONTACT_FROM_EMAIL}
